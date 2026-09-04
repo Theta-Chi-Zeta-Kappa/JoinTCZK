@@ -8,7 +8,7 @@
 //
 // v13 uses Google's Visualization endpoint through a script callback,
 // avoiding the browser CORS problem that can occur with direct CSV fetches.
-window.BROTHERS_SHEET_SHARE_URL = "";
+window.BROTHERS_SHEET_SHARE_URL = "c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\assets c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\css c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\js c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\about.html c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\brothers.html c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\events.html c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\index.html c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\interest.html c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\parents.html c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\README.md c:\Users\jackk\Desktop\Zeta-Kappa-Recruitment-Site-v15-brother-card-sizing\SHEET_SETUP.txt";
 
 // Usually "0" for the first tab.
 // If the Active Brothers roster is on another tab, select that tab in
