@@ -1304,3 +1304,10 @@ footer p { margin: 0; text-align: center; }
   .finish-polaroid.fp6 { left: calc(50% + 170px); }
   .finish-polaroid.fp7 { left: calc(50% + 315px); }
 }
+
+/* v16: recruitment site uses the full navigation; stray hamburger controls removed. */
+.hamburger,
+.menu-toggle,
+.nav-toggle {
+  display: none !important;
+}
