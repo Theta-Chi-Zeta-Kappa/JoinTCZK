@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Brothers | Theta Chi - Zeta Kappa</title>
+  <link rel="stylesheet" href="css/recruitment.css" />
+  <link rel="stylesheet" href="css/brothers.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Zeta Kappa recruitment home">
+      <img src="assets/img/mainlogo.png" alt="Theta Chi Zeta Kappa" />
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="about.html">Brotherhood</a>
+      <a class="active" href="brothers.html">Experience</a>
+      <a href="events.html">Events</a>
+      <a href="parents.html">Parents</a>
+      <a class="nav-cta" href="interest.html">I'm Interested</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="brothers-hero">
+      <p class="eyebrow">The people behind Zeta Kappa</p>
+      <h1>Meet the Brothers</h1>
+      <p>The chapter changes every year. This page is built directly from our current active-brother roster.</p>
+    </section>
+
+    <section class="brothers-section">
+      <div class="brothers-status" id="brothersStatus">Loading active roster…</div>
+      <div class="brothers-grid" id="brothersGrid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Theta Chi Fraternity · Zeta Kappa Chapter · Ohio Northern University</p>
+  </footer>
+
+  <script src="js/recruitment.js"></script>
+  <script src="js/brothers-config.js"></script>
+  <script src="js/brothers.js"></script>
+</body>
+</html>

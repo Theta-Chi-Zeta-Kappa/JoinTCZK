@@ -1,63 +1,79 @@
-# Zeta Kappa Family Tree — Website-Integrated v13
+# Zeta Kappa Recruitment Site v2
 
-This update brings a partially integrated designed family tree system to replace the existing setup the website was using. 
+Pages:
+- index.html
+- about.html — developed scrapbook-style About Us page
+- brothers.html — placeholder
+- events.html — placeholder
+- parents.html — placeholder
+- interest.html — placeholder
 
-## Install
+The About page alternates image-left/text-right and text-left/image-right through Brotherhood, Service, Leadership, and Beyond College. Images use a polaroid-style white frame, thicker lower border, drop shadow, slight rotation, and subtle gloss.
 
-Place these files in the same website directory as `HomePage.html` and `styleHomePage.css`:
 
-- `FamilyTreeCannon.html`
-- `styleFamilyTree.css`
-- `familyTreeApp.js`
-- `familyTreeConfig.js`
-- `Zeta_Kappa_Family_Tree_Database_Reconstructed.xlsx`
+## v4 correction
+- Removed the five-photo collage from the homepage Experience section.
+- Kept the homepage Experience area as a restrained translucent dark section.
+- Moved the five overlapping Polaroid photos to the About Us closing section.
+- The closing black panel is now semi-transparent and blurred, visibly floating over the photos behind it.
 
-An unchanged copy of the published `styleHomePage.css` is included so the package can be reviewed as a complete set. If the website already contains that exact stylesheet, it does not need to be replaced.
 
-The family-tree page reuses the website's existing assets:
+## v5 collage revision
+- Enlarged all five closing Polaroids.
+- Reworked them into a loose single-row composition rather than a 2x2-style cluster.
+- Mixed portrait and landscape card proportions.
+- Increased rotation variety so they feel tossed onto a scrapbook table and partially organized.
+- Reduced the dark panel opacity slightly so the photos visibly continue underneath it.
+- Positioned the panel so it covers only the middle portions of the photos, leaving large sections exposed.
 
-- `styleHomePage.css`
-- `path-10.svg`
-- `path-20.svg`
-- `path-30.svg`
-- `img/_248-zeta-kappa-ohio-northern-pdf-10.png`
 
-Keeping the filename `FamilyTreeCannon.html` means the current homepage and sidebar links continue to work without changes.
+## v6 wide scrapbook revision
+- Expanded the About closing collage from 5 to 9 prints.
+- Duplicated several existing photos intentionally as temporary placeholders.
+- Spread the photographs across a field wider than the CTA panel and, on desktop, slightly wider than the viewport.
+- Preserved mixed portrait/landscape proportions and irregular rotations.
+- Kept the translucent CTA centered over only the middle of the scrapbook spread.
 
-## Styling architecture
 
-The page loads `styleHomePage.css` first for the shared website header, followed by `styleFamilyTree.css`. All family-tree application styles are scoped beneath `.family-tree-page`, preventing the tree from changing the website header or navigation.
+## v7 edge-intersection correction
+- Repositioned the photographs around the perimeter of the translucent panel instead of behind its center.
+- Six prints intersect only an edge of the black panel, leaving about half of each visible outside it.
+- Three additional prints sit farther left/right and are partially obscured by neighboring Polaroids rather than by the panel.
+- Kept irregular rotations and mixed portrait/landscape proportions.
 
-## Live data
 
-The Google Sheets URL remains configured in `familyTreeConfig.js`. It may be either a normal viewer-sharing URL or a Google Sheets **Publish to web** URL. A published CSV URL can instead be placed in `googleCsvUrl` when `googleSheetUrl` is left blank.
+## v8 horizontal spread
+- Preserved the v7 perimeter-intersection composition.
+- Pushed the photograph field roughly 50% farther left and right.
+- Far outer Polaroids now extend beyond the central content width.
+- Middle photographs bridge the gap between the outer prints and the translucent panel.
+- Kept one lower-center photograph as a visual anchor so the collage still feels connected.
 
-For the narrowest public exposure, publish only the `Database` sheet rather than the entire workbook. The bundled workbook is retained as an automatic fallback, but there is no manual workbook picker.
 
-Published-page example:
+## v9 extra-wide scrapbook revision
+- Pushed the v8 photograph composition approximately another 75% outward horizontally.
+- Outer prints now sit substantially farther beside the translucent panel.
+- Inner prints still bridge toward/intersect the panel so the collage remains visually connected.
 
-```js
-googleSheetUrl: 'https://docs.google.com/spreadsheets/d/e/PUBLISHED_ID/pubhtml?gid=DATABASE_GID&single=true',
-googleCsvUrl: '',
-```
 
-Published-CSV example:
+## v10 open-center revision
+- Pushed four of the inner/center photographs farther toward the left and right edges.
+- Moved the lower-center portrait toward the lower-left edge rather than directly behind the CTA.
+- Preserved a few partial intersections with the translucent panel while opening up substantially more of its center.
 
-```js
-googleSheetUrl: '',
-googleCsvUrl: 'https://docs.google.com/spreadsheets/d/e/PUBLISHED_ID/pub?output=csv&gid=DATABASE_GID',
-```
 
-Leave automatic republishing enabled in Google Sheets if website visitors should receive later database edits automatically when they next open the page.
+## v11 live Meet the Brothers demo
+- Replaced the Brothers placeholder with a responsive scrapbook-style active roster.
+- Reads Name, Major, Graduation Year, Position, and Photo from a published Google Sheet CSV.
+- No manual refresh control; roster is fetched automatically on page load.
+- Blank Position/Major/Graduation fields simply do not render.
+- Missing/broken photos fall back to the chapter wordmark.
+- Connect the sheet by pasting its published CSV URL into js/brothers-config.js.
 
-## Preserved Version 11 behavior
 
-- Ordered family selection
-- Ranked name and roster-number search
-- Live Google Sheets refresh and Excel fallback
-- Desktop pan, zoom, and fit controls
-- Lineage and descendant views
-- Double-click member details on desktop
-- Responsive mobile family list
-- Hidden Unique IDs outside member details
-- Founding Father visual treatment
+## v12 normal Google Sheets share-link support
+- brothers-config.js now accepts the standard Google Sheets share link instead of a published CSV URL.
+- brothers.js extracts the spreadsheet ID automatically and builds the CSV export endpoint internally.
+- Set the sheet to "Anyone with the link" -> Viewer.
+- If the Active Brothers roster is not the first sheet tab, set BROTHERS_SHEET_GID to that tab's gid.
+- Recommended for local testing: use a local HTTP server such as VS Code Live Server or `python -m http.server`; do not open the HTML via file://.

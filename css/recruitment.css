@@ -1,0 +1,1306 @@
+@font-face {
+  font-family: "RecruitmentDisplay";
+  src: local("Georgia");
+}
+
+:root {
+  --red: #b21615;
+  --red-dark: #7f1110;
+  --gold: #c9935b;
+  --cream: #f4efe8;
+  --ink: #171717;
+  --muted: #66615b;
+  --white: #ffffff;
+  --shadow: 0 18px 50px rgba(0,0,0,.14);
+  --radius: 22px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background: #fff;
+  line-height: 1.55;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 0 clamp(20px, 5vw, 76px);
+  background: rgba(255,255,255,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0,0,0,.08);
+}
+.brand { margin-right: auto; }
+.brand img { width: 350px; height: auto; }
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  font-size: .92rem;
+  font-weight: 700;
+}
+.site-nav > a:not(.nav-cta) {
+  position: relative;
+  padding: 12px 0;
+}
+.site-nav > a:not(.nav-cta)::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 100%; bottom: 7px;
+  height: 2px;
+  background: var(--red);
+  transition: right .2s ease;
+}
+.site-nav > a:hover::after { right: 0; }
+.nav-cta {
+  background: var(--red);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 999px;
+}
+.menu-toggle {
+  display: none;
+  width: 45px; height: 42px;
+  border: 0; background: none; padding: 9px;
+}
+.menu-toggle span {
+  display: block; height: 3px; background: var(--red);
+  margin: 5px 0; border-radius: 4px;
+}
+
+.hero {
+  position: relative;
+  min-height: calc(100vh - 86px);
+  display: flex;
+  align-items: center;
+  color: white;
+  background:
+    url("../assets/img/Theta Chi Fall 2025 Header.jpg") center 44% / cover no-repeat;
+  overflow: hidden;
+}
+.hero-shade {
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(13,13,13,.78) 0%, rgba(13,13,13,.52) 48%, rgba(13,13,13,.16) 100%);
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(760px, 86vw);
+  margin-left: clamp(24px, 8vw, 125px);
+  padding: 85px 0 120px;
+}
+.eyebrow {
+  margin: 0 0 16px;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .78rem;
+  font-weight: 800;
+}
+.eyebrow.red { color: var(--red); }
+.eyebrow.gold { color: var(--gold); }
+.hero h1,
+.section h2,
+.parent-popout h2 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+.hero h1 {
+  max-width: 780px;
+  margin: 0;
+  font-size: clamp(3rem, 7vw, 6.6rem);
+  line-height: .92;
+  letter-spacing: -.045em;
+  font-weight: 700;
+}
+.hero-copy {
+  max-width: 650px;
+  margin: 28px 0 34px;
+  font-size: clamp(1rem, 2vw, 1.22rem);
+  color: rgba(255,255,255,.9);
+}
+.hero-actions, .interest-actions, .parent-actions {
+  display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+}
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 22px;
+  border-radius: 999px;
+  font-weight: 800;
+  border: 1px solid transparent;
+  transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.button:hover { transform: translateY(-2px); }
+.button-primary { background: var(--red); color: #fff; box-shadow: 0 10px 24px rgba(178,22,21,.3); }
+.button-primary:hover { background: var(--red-dark); }
+.button-secondary { border-color: rgba(255,255,255,.7); color: #fff; background: rgba(255,255,255,.08); }
+.button-secondary:hover { background: rgba(255,255,255,.16); }
+.button-dark { background: var(--ink); color: white; }
+.button-light { background: white; color: var(--red); }
+.hero-location {
+  position: absolute;
+  z-index: 2;
+  right: clamp(20px, 5vw, 76px);
+  bottom: 28px;
+  font-size: .76rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+
+.section { padding: 90px clamp(20px, 7vw, 110px); }
+.section-heading {
+  max-width: 780px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+.section-heading.compact { margin-bottom: 38px; }
+.section-heading h2, .split h2, .parents-inner h2, .interest-card h2 {
+  margin: 0 0 18px;
+  font-size: clamp(2.2rem, 4.8vw, 4.2rem);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+.section-heading p:last-child, .split-copy > p:last-of-type, .parents-inner p, .interest-card > p {
+  color: var(--muted);
+  font-size: 1.04rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.feature-card {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--cream);
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+.feature-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.feature-card > div { padding: 24px; }
+.feature-card span {
+  display: inline-block;
+  color: var(--red);
+  font-size: .76rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+.feature-card h3 { margin: 5px 0 8px; font-family: Georgia, serif; font-size: 1.6rem; }
+.feature-card p { margin: 0; color: var(--muted); font-size: .94rem; }
+
+.dark-section { background: #171717; color: white; }
+.split {
+  width: min(1200px, 100%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1.15fr .85fr;
+  gap: clamp(40px, 8vw, 110px);
+  align-items: center;
+}
+.dark-section .split-copy > p:last-of-type { color: #d0cbc5; }
+.text-link { display: inline-block; margin-top: 16px; color: var(--gold); font-weight: 800; }
+.quote-panel {
+  min-height: 420px;
+  background: var(--red);
+  border-radius: var(--radius);
+  padding: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: var(--shadow);
+}
+.greek-mark { font-family: Georgia, serif; font-size: 6rem; opacity: .16; line-height: 1; }
+.quote-panel p { font-family: Georgia, serif; font-size: clamp(1.7rem, 3vw, 2.6rem); line-height: 1.1; margin: auto 0 20px; }
+.quote-panel span { color: rgba(255,255,255,.72); font-size: .86rem; }
+
+.events { background: #faf9f7; }
+.event-shell {
+  width: min(1000px, 100%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 30px;
+  align-items: center;
+  padding: 30px;
+  border-radius: var(--radius);
+  background: white;
+  border: 1px solid #e8e3dc;
+  box-shadow: 0 10px 35px rgba(0,0,0,.06);
+}
+.event-date {
+  height: 96px;
+  border-radius: 18px;
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  background: var(--red); color: white;
+}
+.event-date strong { font-size: 1.25rem; }
+.event-date span { opacity: .8; }
+.event-copy h3 { margin: 0 0 6px; font-family: Georgia, serif; font-size: 1.5rem; }
+.event-copy p { margin: 0; color: var(--muted); }
+
+.parents-preview { background: var(--red); color: white; }
+.parents-inner {
+  width: min(1120px, 100%);
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 50px;
+  align-items: center;
+}
+.parents-inner p { max-width: 770px; color: rgba(255,255,255,.84); }
+
+.interest { background: var(--cream); }
+.interest-card {
+  width: min(900px, 100%);
+  margin: auto;
+  text-align: center;
+  padding: clamp(35px, 6vw, 70px);
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.interest-card > p { max-width: 650px; margin-left: auto; margin-right: auto; }
+.interest-actions { justify-content: center; margin-top: 28px; }
+.social-link { display: inline-flex; align-items: center; gap: 8px; font-weight: 800; }
+.social-link img { width: 26px; filter: brightness(0); }
+.interest-card small { display: block; margin-top: 18px; color: #89837c; }
+
+footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 20px;
+  padding: 34px clamp(20px, 5vw, 76px);
+  background: #111;
+  color: #c9c5bf;
+  font-size: .82rem;
+}
+footer > img { width: 150px; filter: brightness(0) invert(1); }
+footer p { margin: 0; text-align: center; }
+.footer-socials { justify-self: end; display: flex; gap: 12px; }
+.footer-socials img { width: 26px; filter: brightness(0) invert(1); }
+
+.parent-popout {
+  position: fixed;
+  z-index: 100;
+  right: 28px;
+  bottom: 28px;
+  width: min(440px, calc(100vw - 32px));
+  overflow: hidden;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 24px 75px rgba(0,0,0,.24);
+  transform: translateY(24px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .28s ease, transform .28s ease;
+}
+.parent-popout.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.parent-accent { height: 7px; background: linear-gradient(90deg, var(--red) 0 72%, var(--gold) 72%); }
+.parent-content { padding: 30px; }
+.parent-label {
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  font-size: .74rem;
+  font-weight: 900;
+  margin: 0 0 8px;
+}
+.parent-popout h2 { margin: 0 35px 12px 0; font-size: 2rem; line-height: 1.05; }
+.parent-popout p:not(.parent-label) { color: var(--muted); margin-bottom: 22px; }
+.parent-close {
+  position: absolute;
+  z-index: 2;
+  top: 17px; right: 16px;
+  border: 0; background: none;
+  font-size: 2rem; line-height: 1;
+  color: #6b655f; cursor: pointer;
+}
+.not-now {
+  border: 0; background: none;
+  padding: 10px 4px;
+  font-weight: 700;
+  color: #666;
+  cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .split { grid-template-columns: 1fr; }
+  .quote-panel { min-height: 330px; }
+  .parents-inner { grid-template-columns: 1fr; gap: 20px; }
+}
+@media (max-width: 800px) {
+  .site-header { height: 74px; }
+  .brand img { width: 210px; }
+  .menu-toggle { display: block; }
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 74px; left: 0; right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 12px 22px 22px;
+    background: white;
+    border-bottom: 1px solid #ddd;
+    box-shadow: 0 15px 25px rgba(0,0,0,.08);
+  }
+  .site-nav.open { display: flex; }
+  .site-nav a { padding: 13px 0; }
+  .nav-cta { text-align: center; margin-top: 8px; }
+  .hero { min-height: calc(100svh - 74px); background-position: 60% center; }
+  .hero-shade { background: linear-gradient(90deg, rgba(13,13,13,.78), rgba(13,13,13,.42)); }
+  .hero-content { margin-left: 24px; padding: 65px 0 100px; }
+  .hero-location { left: 24px; right: auto; }
+  .event-shell { grid-template-columns: 90px 1fr; }
+  .event-shell .button { grid-column: 1 / -1; }
+  footer { grid-template-columns: 1fr; justify-items: center; }
+  .footer-socials { justify-self: center; }
+}
+@media (max-width: 560px) {
+  .section { padding: 68px 18px; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .feature-card { min-height: 0; }
+  .hero h1 { font-size: clamp(3rem, 15vw, 5rem); }
+  .hero-actions .button { width: 100%; }
+  .event-shell { grid-template-columns: 1fr; text-align: center; }
+  .event-date { width: 100%; height: 76px; }
+  .parent-popout { right: 16px; bottom: 16px; }
+  .parent-actions .button { width: 100%; }
+  .not-now { width: 100%; }
+}
+
+
+/* ===== Shared subpage system ===== */
+.subpage-hero {
+  min-height: 46vh;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  overflow: hidden;
+  padding: 80px clamp(20px, 7vw, 110px);
+  color: #fff;
+  background: #171717;
+}
+.subpage-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0,0,0,.76), rgba(0,0,0,.18));
+}
+.subpage-hero > div {
+  position: relative;
+  z-index: 2;
+  width: min(820px, 100%);
+}
+.subpage-hero h1 {
+  margin: 0 0 16px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: .95;
+  letter-spacing: -.045em;
+}
+.subpage-hero p:last-child {
+  max-width: 700px;
+  margin: 0;
+  font-size: 1.1rem;
+  color: rgba(255,255,255,.86);
+}
+
+.placeholder-page {
+  min-height: 52vh;
+  display: grid;
+  place-items: center;
+  padding: 90px 20px;
+  background: var(--cream);
+}
+.placeholder-card {
+  width: min(760px, 100%);
+  background: #fff;
+  border-radius: var(--radius);
+  padding: clamp(34px, 6vw, 68px);
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.placeholder-card h2 {
+  margin: 0 0 14px;
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+.placeholder-card p { color: var(--muted); }
+
+/* ===== About Us: scrapbook story ===== */
+.about-hero {
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.2), rgba(0,0,0,.05)),
+    url("../assets/img/Theta Chi Fall 2025 Header.jpg") center 42% / cover no-repeat;
+}
+.scrapbook {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 10%, rgba(201,147,91,.10), transparent 23%),
+    radial-gradient(circle at 83% 42%, rgba(178,22,21,.06), transparent 26%),
+    #f5f0e8;
+}
+.scrapbook::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .25;
+  background-image:
+    linear-gradient(rgba(120,95,70,.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(120,95,70,.05) 1px, transparent 1px);
+  background-size: 42px 42px;
+}
+.story-intro {
+  position: relative;
+  z-index: 1;
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 82px 20px 34px;
+  text-align: center;
+}
+.story-intro h2 {
+  margin: 0 0 18px;
+  font-family: Georgia, serif;
+  font-size: clamp(2.4rem, 5vw, 4.6rem);
+  line-height: 1;
+  letter-spacing: -.035em;
+}
+.story-intro p { color: var(--muted); font-size: 1.05rem; }
+
+.story-row {
+  position: relative;
+  z-index: 1;
+  width: min(1180px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 74px 0;
+  display: grid;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  gap: clamp(44px, 8vw, 110px);
+  align-items: center;
+}
+.story-row.reverse .story-photo { order: 2; }
+.story-row.reverse .story-copy { order: 1; }
+
+.story-copy .story-number {
+  display: inline-block;
+  margin-bottom: 10px;
+  color: var(--red);
+  font-size: .76rem;
+  font-weight: 900;
+  letter-spacing: .17em;
+}
+.story-copy h2 {
+  margin: 0 0 18px;
+  font-family: Georgia, serif;
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+  line-height: .98;
+  letter-spacing: -.04em;
+}
+.story-copy p {
+  margin: 0 0 18px;
+  color: #514c47;
+  font-size: 1.04rem;
+}
+.story-copy .story-note {
+  display: inline-block;
+  margin-top: 4px;
+  padding: 8px 12px;
+  background: rgba(201,147,91,.14);
+  border-left: 3px solid var(--gold);
+  color: #65584b;
+  font-size: .88rem;
+}
+
+.story-photo {
+  position: relative;
+  width: min(100%, 510px);
+  justify-self: center;
+  padding: 12px 12px 54px;
+  background: white;
+  box-shadow: 0 24px 55px rgba(55,39,28,.23);
+  transform: rotate(-2deg);
+}
+.story-row.reverse .story-photo { transform: rotate(2.2deg); }
+.story-row:nth-of-type(odd) .story-photo { transform: rotate(-1.3deg); }
+.story-photo img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+.story-photo::after {
+  content: "";
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  top: 12px;
+  height: 44%;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(255,255,255,.28), rgba(255,255,255,0) 42%);
+  mix-blend-mode: screen;
+}
+.story-caption {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 16px;
+  font-family: "Segoe Print", "Bradley Hand", cursive;
+  color: #4d4742;
+  font-size: .92rem;
+  text-align: center;
+}
+.story-divider {
+  position: relative;
+  z-index: 1;
+  width: min(960px, calc(100% - 60px));
+  height: 1px;
+  margin: 0 auto;
+  background: linear-gradient(90deg, transparent, rgba(75,60,48,.22), transparent);
+}
+.about-finish {
+  position: relative;
+  z-index: 1;
+  padding: 80px 20px 100px;
+  text-align: center;
+}
+.about-finish > div {
+  width: min(820px, 100%);
+  margin: auto;
+  padding: clamp(36px, 6vw, 64px);
+  background: #171717;
+  color: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.about-finish h2 {
+  margin: 0 0 14px;
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+.about-finish p { color: #cec8c1; }
+
+@media (max-width: 800px) {
+  .story-row,
+  .story-row.reverse {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 55px 0;
+  }
+  .story-row.reverse .story-photo,
+  .story-row.reverse .story-copy { order: initial; }
+  .story-photo,
+  .story-row.reverse .story-photo,
+  .story-row:nth-of-type(odd) .story-photo { transform: rotate(-1deg); }
+}
+\n\n
+
+/* ===== v4: restrained translucent Experience treatment ===== */
+.experience-soft-dark {
+  background:
+    linear-gradient(rgba(0,0,0,.72), rgba(0,0,0,.72)),
+    #3f3a36;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+}
+
+/* ===== About-page closing collage =====
+   Larger, looser one-line scrapbook layout: photos look like they were tossed
+   across a table and partially organized around the translucent CTA panel. */
+.about-finish {
+  position: relative;
+  z-index: 1;
+  min-height: 760px;
+  padding: 120px 20px 135px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.about-finish-collage {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(1320px, calc(100% - 10px));
+  height: 600px;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+/* Larger photos, with a mix of landscape and portrait proportions */
+.finish-polaroid {
+  position: absolute;
+  margin: 0;
+  padding: 10px 10px 42px;
+  background: #fff;
+  box-shadow: 0 24px 50px rgba(57, 43, 31, .34);
+  transform-origin: center center;
+}
+
+.finish-polaroid img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.finish-polaroid::after {
+  content: "";
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  height: 42%;
+  pointer-events: none;
+  background: linear-gradient(
+    125deg,
+    rgba(255,255,255,.34),
+    rgba(255,255,255,.08) 35%,
+    transparent 60%
+  );
+}
+
+/* A single loose row, intentionally irregular.
+   Two are portrait-ish, three are broader landscape cards. */
+.finish-polaroid.fp1 {
+  width: clamp(230px, 24vw, 355px);
+  height: clamp(315px, 31vw, 450px);
+  left: -1%;
+  top: 13%;
+  transform: rotate(-12deg);
+  z-index: 1;
+}
+
+.finish-polaroid.fp2 {
+  width: clamp(290px, 28vw, 405px);
+  height: clamp(235px, 22vw, 315px);
+  left: 17%;
+  top: 6%;
+  transform: rotate(6deg);
+  z-index: 2;
+}
+
+.finish-polaroid.fp3 {
+  width: clamp(240px, 23vw, 340px);
+  height: clamp(330px, 32vw, 455px);
+  left: 40%;
+  top: 2%;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+
+.finish-polaroid.fp4 {
+  width: clamp(300px, 29vw, 420px);
+  height: clamp(240px, 23vw, 325px);
+  right: 14%;
+  top: 8%;
+  transform: rotate(9deg);
+  z-index: 2;
+}
+
+.finish-polaroid.fp5 {
+  width: clamp(240px, 23vw, 350px);
+  height: clamp(325px, 31vw, 445px);
+  right: -1%;
+  top: 14%;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+
+/* The glass panel sits over only the middle slices of the photos.
+   Large portions stay visible above/below/around it. */
+.about-finish-panel {
+  position: relative;
+  z-index: 5;
+  width: min(760px, calc(100% - 34px));
+  margin: auto;
+  padding: clamp(38px, 6vw, 66px);
+  text-align: center;
+  color: #fff;
+  background: rgba(0, 0, 0, .64);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: var(--radius);
+  box-shadow: 0 24px 70px rgba(0,0,0,.29);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.about-finish-panel h2 {
+  margin: 0 0 14px;
+  font-family: Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+}
+
+.about-finish-panel p {
+  color: rgba(255,255,255,.84);
+}
+
+/* Cancel older generic direct-child styling. */
+.about-finish > div {
+  width: initial;
+  margin: initial;
+  padding: initial;
+  background: transparent;
+  color: inherit;
+  border-radius: initial;
+  box-shadow: none;
+}
+
+.about-finish > .about-finish-panel {
+  width: min(760px, calc(100% - 34px));
+  margin: auto;
+  padding: clamp(38px, 6vw, 66px);
+  background: rgba(0, 0, 0, .64);
+  color: #fff;
+  border-radius: var(--radius);
+  box-shadow: 0 24px 70px rgba(0,0,0,.29);
+}
+
+@media (max-width: 1000px) {
+  .about-finish {
+    min-height: 720px;
+  }
+
+  .about-finish-collage {
+    width: 1120px;
+    max-width: none;
+    height: 570px;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-finish {
+    min-height: 760px;
+    padding: 110px 12px 120px;
+  }
+
+  .about-finish-collage {
+    width: 900px;
+    max-width: none;
+    height: 590px;
+  }
+
+  .finish-polaroid.fp1 {
+    width: 205px;
+    height: 285px;
+    left: 4%;
+    top: 14%;
+  }
+
+  .finish-polaroid.fp2 {
+    width: 255px;
+    height: 205px;
+    left: 20%;
+    top: 8%;
+  }
+
+  .finish-polaroid.fp3 {
+    width: 210px;
+    height: 300px;
+    left: 42%;
+    top: 3%;
+  }
+
+  .finish-polaroid.fp4 {
+    width: 260px;
+    height: 210px;
+    right: 17%;
+    top: 11%;
+  }
+
+  .finish-polaroid.fp5 {
+    width: 210px;
+    height: 295px;
+    right: 4%;
+    top: 15%;
+  }
+
+  .about-finish > .about-finish-panel {
+    width: min(92%, 650px);
+    padding: 34px 24px;
+    background: rgba(0,0,0,.67);
+  }
+}
+
+
+
+/* ===== v6: extra-wide scrapbook spread =====
+   Nine placeholder prints intentionally run beyond the central glass panel.
+   Some source images are duplicated until final recruitment photography is added. */
+.about-finish {
+  min-height: 790px;
+  padding-top: 125px;
+  padding-bottom: 145px;
+}
+
+.about-finish-collage {
+  width: min(1720px, 118vw);
+  max-width: none;
+  height: 625px;
+  overflow: visible;
+}
+
+/* Override v5 positions: broad, imperfect tabletop line */
+.finish-polaroid.fp1 {
+  width: 300px; height: 405px;
+  left: 0%; top: 14%;
+  transform: rotate(-13deg);
+  z-index: 1;
+}
+.finish-polaroid.fp2 {
+  width: 345px; height: 265px;
+  left: 10%; top: 4%;
+  transform: rotate(7deg);
+  z-index: 2;
+}
+.finish-polaroid.fp3 {
+  width: 270px; height: 390px;
+  left: 23%; top: 17%;
+  transform: rotate(-5deg);
+  z-index: 1;
+}
+.finish-polaroid.fp4 {
+  width: 355px; height: 275px;
+  left: 34%; top: 2%;
+  transform: rotate(10deg);
+  z-index: 2;
+}
+.finish-polaroid.fp5 {
+  width: 285px; height: 410px;
+  left: 45%; top: 12%;
+  transform: rotate(-7deg);
+  z-index: 1;
+}
+.finish-polaroid.fp6 {
+  width: 350px; height: 270px;
+  left: 56%; top: 3%;
+  transform: rotate(5deg);
+  z-index: 2;
+}
+.finish-polaroid.fp7 {
+  width: 275px; height: 395px;
+  left: 68%; top: 15%;
+  transform: rotate(-10deg);
+  z-index: 1;
+}
+.finish-polaroid.fp8 {
+  width: 350px; height: 268px;
+  left: 78%; top: 5%;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+.finish-polaroid.fp9 {
+  width: 285px; height: 405px;
+  right: -1%; top: 13%;
+  transform: rotate(-12deg);
+  z-index: 1;
+}
+
+/* Keep the CTA narrower than the photograph field so the pictures visibly
+   continue well past both sides of it. */
+.about-finish > .about-finish-panel {
+  width: min(700px, calc(100% - 42px));
+  background: rgba(0,0,0,.63);
+}
+
+@media (max-width: 1100px) {
+  .about-finish-collage {
+    width: 1450px;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-finish {
+    min-height: 780px;
+    overflow: hidden;
+  }
+
+  .about-finish-collage {
+    width: 1180px;
+    height: 600px;
+  }
+
+  .finish-polaroid.fp1 { width: 210px; height: 290px; left: 1%; top: 15%; }
+  .finish-polaroid.fp2 { width: 245px; height: 190px; left: 12%; top: 6%; }
+  .finish-polaroid.fp3 { width: 195px; height: 285px; left: 24%; top: 17%; }
+  .finish-polaroid.fp4 { width: 250px; height: 195px; left: 35%; top: 4%; }
+  .finish-polaroid.fp5 { width: 205px; height: 300px; left: 46%; top: 13%; }
+  .finish-polaroid.fp6 { width: 250px; height: 195px; left: 57%; top: 4%; }
+  .finish-polaroid.fp7 { width: 200px; height: 290px; left: 69%; top: 16%; }
+  .finish-polaroid.fp8 { width: 245px; height: 190px; left: 79%; top: 6%; }
+  .finish-polaroid.fp9 { width: 205px; height: 295px; right: 0%; top: 14%; }
+
+  .about-finish > .about-finish-panel {
+    width: min(88%, 620px);
+  }
+}
+
+
+/* ===== v7: edge-intersection scrapbook geometry =====
+   Intent: the black glass panel is NOT the container for the photos.
+   Six prints only intrude under its perimeter by roughly half their width/height,
+   while three more prints live outside the panel and are partially blocked by
+   neighboring photographs. */
+.about-finish {
+  min-height: 850px;
+  padding: 130px 20px 150px;
+}
+
+.about-finish-collage {
+  width: min(1500px, 100vw);
+  height: 700px;
+  overflow: visible;
+}
+
+/* Make the panel a little more compact so its edges are clearly visible. */
+.about-finish > .about-finish-panel {
+  width: min(680px, calc(100% - 44px));
+  min-height: 310px;
+  padding: clamp(36px, 5vw, 58px);
+  background: rgba(0,0,0,.64);
+}
+
+/* LEFT SIDE:
+   fp2 and fp3 cross the left edge of the black panel.
+   fp1 sits farther out and is partly covered by fp2. */
+.finish-polaroid.fp1 {
+  width: 275px; height: 380px;
+  left: 1%; top: 22%;
+  transform: rotate(-13deg);
+  z-index: 1;
+}
+.finish-polaroid.fp2 {
+  width: 330px; height: 255px;
+  left: 15%; top: 8%;
+  transform: rotate(8deg);
+  z-index: 2;
+}
+.finish-polaroid.fp3 {
+  width: 255px; height: 365px;
+  left: calc(50% - 455px);
+  top: 29%;
+  transform: rotate(-6deg);
+  z-index: 2;
+}
+
+/* TOP / BOTTOM:
+   These cross only the upper or lower edge of the glass panel rather than
+   disappearing behind its center. */
+.finish-polaroid.fp4 {
+  width: 340px; height: 255px;
+  left: calc(50% - 255px);
+  top: 1%;
+  transform: rotate(7deg);
+  z-index: 2;
+}
+.finish-polaroid.fp5 {
+  width: 265px; height: 385px;
+  left: calc(50% - 135px);
+  bottom: -1%;
+  top: auto;
+  transform: rotate(-5deg);
+  z-index: 2;
+}
+.finish-polaroid.fp6 {
+  width: 335px; height: 250px;
+  left: calc(50% + 55px);
+  top: 3%;
+  transform: rotate(10deg);
+  z-index: 2;
+}
+
+/* RIGHT SIDE:
+   fp7 and fp8 cross the right edge.
+   fp9 is an outer loose print, partially covered by fp8. */
+.finish-polaroid.fp7 {
+  width: 255px; height: 370px;
+  left: calc(50% + 205px);
+  top: 30%;
+  transform: rotate(6deg);
+  z-index: 2;
+}
+.finish-polaroid.fp8 {
+  width: 330px; height: 255px;
+  right: 15%;
+  left: auto;
+  top: 9%;
+  transform: rotate(-8deg);
+  z-index: 2;
+}
+.finish-polaroid.fp9 {
+  width: 275px; height: 380px;
+  right: 1%;
+  left: auto;
+  top: 22%;
+  transform: rotate(12deg);
+  z-index: 1;
+}
+
+/* The panel remains above every print, but because the photos only cross its
+   perimeter, roughly half of each intersecting print remains plainly visible. */
+.about-finish-panel {
+  z-index: 6;
+}
+
+@media (max-width: 1050px) {
+  .about-finish-collage {
+    width: 1100px;
+    max-width: none;
+  }
+}
+
+@media (max-width: 800px) {
+  .about-finish {
+    min-height: 820px;
+    padding: 120px 10px 135px;
+  }
+
+  .about-finish-collage {
+    width: 930px;
+    height: 660px;
+  }
+
+  .about-finish > .about-finish-panel {
+    width: min(82%, 560px);
+    min-height: 300px;
+  }
+
+  .finish-polaroid.fp1 { width: 185px; height: 255px; left: 2%; top: 25%; }
+  .finish-polaroid.fp2 { width: 220px; height: 170px; left: 15%; top: 10%; }
+  .finish-polaroid.fp3 { width: 175px; height: 250px; left: calc(50% - 315px); top: 32%; }
+  .finish-polaroid.fp4 { width: 225px; height: 170px; left: calc(50% - 180px); top: 4%; }
+  .finish-polaroid.fp5 { width: 180px; height: 260px; left: calc(50% - 90px); bottom: 1%; }
+  .finish-polaroid.fp6 { width: 225px; height: 170px; left: calc(50% + 35px); top: 5%; }
+  .finish-polaroid.fp7 { width: 175px; height: 250px; left: calc(50% + 140px); top: 32%; }
+  .finish-polaroid.fp8 { width: 220px; height: 170px; right: 15%; top: 10%; }
+  .finish-polaroid.fp9 { width: 185px; height: 255px; right: 2%; top: 25%; }
+}
+
+
+/* ===== v8: push scrapbook spread farther left/right =====
+   Same v7 edge-intersection idea, but roughly 50% more horizontal separation
+   from the center panel. */
+.about-finish-collage {
+  width: min(1800px, 120vw);
+  max-width: none;
+}
+
+/* Far-left outer print */
+.finish-polaroid.fp1 {
+  left: -6%;
+}
+
+/* Left-middle print */
+.finish-polaroid.fp2 {
+  left: 7%;
+}
+
+/* Left panel-edge print */
+.finish-polaroid.fp3 {
+  left: calc(50% - 565px);
+}
+
+/* Upper-left/center print */
+.finish-polaroid.fp4 {
+  left: calc(50% - 340px);
+}
+
+/* Keep one lower print near center as an anchor */
+.finish-polaroid.fp5 {
+  left: calc(50% - 132px);
+}
+
+/* Upper-right/center print */
+.finish-polaroid.fp6 {
+  left: calc(50% + 105px);
+}
+
+/* Right panel-edge print */
+.finish-polaroid.fp7 {
+  left: calc(50% + 310px);
+}
+
+/* Right-middle print */
+.finish-polaroid.fp8 {
+  right: 7%;
+  left: auto;
+}
+
+/* Far-right outer print */
+.finish-polaroid.fp9 {
+  right: -6%;
+  left: auto;
+}
+
+@media (max-width: 1100px) {
+  .about-finish-collage {
+    width: 1420px;
+  }
+
+  .finish-polaroid.fp1 { left: -4%; }
+  .finish-polaroid.fp2 { left: 8%; }
+  .finish-polaroid.fp3 { left: calc(50% - 445px); }
+  .finish-polaroid.fp4 { left: calc(50% - 285px); }
+  .finish-polaroid.fp6 { left: calc(50% + 75px); }
+  .finish-polaroid.fp7 { left: calc(50% + 255px); }
+  .finish-polaroid.fp8 { right: 8%; }
+  .finish-polaroid.fp9 { right: -4%; }
+}
+
+@media (max-width: 800px) {
+  .about-finish-collage {
+    width: 1120px;
+  }
+
+  .finish-polaroid.fp1 { left: -3%; }
+  .finish-polaroid.fp2 { left: 9%; }
+  .finish-polaroid.fp3 { left: calc(50% - 355px); }
+  .finish-polaroid.fp4 { left: calc(50% - 220px); }
+  .finish-polaroid.fp6 { left: calc(50% + 55px); }
+  .finish-polaroid.fp7 { left: calc(50% + 185px); }
+  .finish-polaroid.fp8 { right: 9%; }
+  .finish-polaroid.fp9 { right: -3%; }
+}
+
+
+/* ===== v9: another ~75% horizontal expansion from v8 =====
+   Deliberately exaggerated so the collage clearly lives beside the glass panel,
+   with only the inner prints intersecting its edges. */
+.about-finish-collage {
+  width: min(2250px, 145vw);
+  max-width: none;
+}
+
+/* Far-left and left-side prints */
+.finish-polaroid.fp1 {
+  left: -13%;
+}
+.finish-polaroid.fp2 {
+  left: 0%;
+}
+.finish-polaroid.fp3 {
+  left: calc(50% - 720px);
+}
+.finish-polaroid.fp4 {
+  left: calc(50% - 455px);
+}
+
+/* Center-bottom anchor stays near the panel */
+.finish-polaroid.fp5 {
+  left: calc(50% - 132px);
+}
+
+/* Right-side and far-right prints */
+.finish-polaroid.fp6 {
+  left: calc(50% + 220px);
+}
+.finish-polaroid.fp7 {
+  left: calc(50% + 465px);
+}
+.finish-polaroid.fp8 {
+  right: 0%;
+  left: auto;
+}
+.finish-polaroid.fp9 {
+  right: -13%;
+  left: auto;
+}
+
+@media (max-width: 1200px) {
+  .about-finish-collage {
+    width: 1850px;
+  }
+
+  .finish-polaroid.fp1 { left: -10%; }
+  .finish-polaroid.fp2 { left: 1%; }
+  .finish-polaroid.fp3 { left: calc(50% - 585px); }
+  .finish-polaroid.fp4 { left: calc(50% - 370px); }
+  .finish-polaroid.fp6 { left: calc(50% + 165px); }
+  .finish-polaroid.fp7 { left: calc(50% + 375px); }
+  .finish-polaroid.fp8 { right: 1%; }
+  .finish-polaroid.fp9 { right: -10%; }
+}
+
+@media (max-width: 800px) {
+  .about-finish-collage {
+    width: 1380px;
+  }
+
+  .finish-polaroid.fp1 { left: -8%; }
+  .finish-polaroid.fp2 { left: 2%; }
+  .finish-polaroid.fp3 { left: calc(50% - 440px); }
+  .finish-polaroid.fp4 { left: calc(50% - 285px); }
+  .finish-polaroid.fp6 { left: calc(50% + 110px); }
+  .finish-polaroid.fp7 { left: calc(50% + 275px); }
+  .finish-polaroid.fp8 { right: 2%; }
+  .finish-polaroid.fp9 { right: -8%; }
+}
+
+
+/* ===== v10: open up the center =====
+   Push several of the inner prints farther outward so the translucent panel
+   has more breathing room while still clipping the edges of a few photos. */
+
+/* upper-left center card: farther left */
+.finish-polaroid.fp4 {
+  left: calc(50% - 555px);
+}
+
+/* lower-center portrait: move left and down so it catches the lower-left edge
+   instead of sitting directly behind the middle of the panel */
+.finish-polaroid.fp5 {
+  left: calc(50% - 330px);
+  bottom: -3%;
+  top: auto;
+  transform: rotate(-8deg);
+}
+
+/* upper-right center card: farther right */
+.finish-polaroid.fp6 {
+  left: calc(50% + 330px);
+}
+
+/* right inner portrait: a little farther right as well */
+.finish-polaroid.fp7 {
+  left: calc(50% + 545px);
+}
+
+@media (max-width: 1200px) {
+  .finish-polaroid.fp4 { left: calc(50% - 445px); }
+  .finish-polaroid.fp5 { left: calc(50% - 275px); }
+  .finish-polaroid.fp6 { left: calc(50% + 245px); }
+  .finish-polaroid.fp7 { left: calc(50% + 430px); }
+}
+
+@media (max-width: 800px) {
+  .finish-polaroid.fp4 { left: calc(50% - 340px); }
+  .finish-polaroid.fp5 { left: calc(50% - 220px); }
+  .finish-polaroid.fp6 { left: calc(50% + 170px); }
+  .finish-polaroid.fp7 { left: calc(50% + 315px); }
+}

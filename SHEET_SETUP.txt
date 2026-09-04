@@ -1,0 +1,50 @@
+MEET THE BROTHERS — GOOGLE SHEET SETUP (v13)
+
+1. Google Sheet sharing:
+   Anyone with the link -> Viewer
+
+2. Copy the NORMAL share link:
+   https://docs.google.com/spreadsheets/d/SHEET_ID/edit?usp=sharing
+
+3. Open js/brothers-config.js
+
+4. Paste the share link:
+   window.BROTHERS_SHEET_SHARE_URL = "YOUR SHARE LINK";
+
+5. Set the tab gid.
+   First tab is usually:
+   window.BROTHERS_SHEET_GID = "0";
+
+   For another tab, select it in Google Sheets and copy the number from:
+   .../edit#gid=123456789
+
+6. Required column headers:
+   Name
+   Major
+   Graduation Year
+   Position
+   Photo
+
+7. v13 does NOT fetch Google's CSV export endpoint.
+   It loads the Google Visualization response with a cross-origin script callback,
+   which is much more suitable for a local prototype.
+
+You may open the prototype through a local web server or test the page locally.
+
+
+V14 TEMPLATE LAYOUT
+The website now reads only A4:E and explicitly treats row 4 as the header row.
+You can keep:
+Row 1 - roster title
+Row 2 - instructions
+Row 3 - notes
+Row 4 - Name | Major | Graduation Year | Position | Photo
+Row 5+ - active brother records
+
+
+V15 DISPLAY RULES
+- Brother cards are capped at 340px wide so a small roster does not create oversized cards.
+- If the roster contains more than 9 brothers, desktop layout uses rows of 3.
+- Responsive layout falls to 2 columns and then 1 column on narrower screens.
+- Position is optional. A blank cell renders nothing.
+- Values such as n/a, N/A, none, or - in Position are also treated as blank.
