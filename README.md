@@ -90,3 +90,7 @@ The About page alternates image-left/text-right and text-left/image-right throug
 - Standardized browser-tab titles for the updated navigation language.
 - Updated the About page hero title to **About Us** while preserving the “More than four years” message in the supporting copy.
 - Fixed mobile navigation stacking so the menu sits above the blur layer and parent prompt. The parent prompt temporarily moves out of the way while the mobile menu is open and returns after it closes.
+
+
+## v27 smart Interest links
+See `INTEREST-LINKS.md` for query-string links that preselect Interest Level and/or How Did You Hear About Us.

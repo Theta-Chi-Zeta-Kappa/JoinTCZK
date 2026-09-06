@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Events | Theta Chi Zeta Kappa</title>
   <link rel="stylesheet" href="css/recruitment.css" />
+  <link rel="stylesheet" href="css/events.css" />
 </head>
 <body>
   <header class="site-header">
@@ -13,45 +14,83 @@
       <img src="assets/img/mainlogo.png" alt="Theta Chi Zeta Kappa at Ohio Northern University" />
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
-
-<nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
       <a href="about.html">About Us</a>
       <a href="brothers.html">Meet the Brothers</a>
-      <a href="events.html">Events</a>
+      <a href="events.html" aria-current="page">Events</a>
       <a href="parents.html">Parents &amp; Families</a>
       <a class="nav-cta" href="interest.html">I'm Interested</a>
     </nav>
   </header>
-<main>
-  <section class="subpage-hero" style="background: linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.22)), url('assets/img/Brotherhood_Fall_2025.jpg') center/cover no-repeat;">
-    <div>
-      <p class="eyebrow gold">Come meet us</p>
-      <h1>Recruitment Events</h1>
-      <p>A dedicated home for the current semester's recruitment schedule, locations, and event details.</p>
-    </div>
-  </section>
-  <section class="placeholder-page">
-    <div class="placeholder-card">
-      <p class="eyebrow red">Page placeholder</p>
-      <h2>Structure ready. Content comes next.</h2>
-      <p>This page is intentionally being held as a placeholder while the recruitment site architecture is developed. The shared navigation, branding, responsive layout, and return path are already in place.</p>
-      <a class="button button-primary" href="index.html">Return Home</a>
-    </div>
-  </section>
-</main>
+
+  <main>
+    <section class="events-hero">
+      <div class="events-hero-shade"></div>
+      <div class="events-hero-content">
+        <p class="eyebrow gold">Come Meet Us</p>
+        <h1>Events</h1>
+        <p>There is no better way to learn what Theta Chi is like than spending time with the people who make up our chapter. See what is coming up and find an event that works for you.</p>
+        <a class="button button-primary" href="#upcoming-events">See Upcoming Events</a>
+      </div>
+    </section>
+
+    <section class="events-section upcoming-section" id="upcoming-events">
+      <div class="events-container">
+        <div class="events-heading">
+          <p class="eyebrow red">Upcoming</p>
+          <h2>Come hang out with us.</h2>
+          <p>Our events are a chance to meet brothers, ask questions, and get a feel for the chapter without making any commitment.</p>
+        </div>
+        <div id="eventsStatus" class="events-status" aria-live="polite">Loading upcoming events…</div>
+        <div id="upcomingEventsGrid" class="upcoming-events-grid" hidden></div>
+        <div id="noUpcomingEvents" class="no-events-card" hidden>
+          <p class="eyebrow red">More Coming Soon</p>
+          <h3>More events are coming soon.</h3>
+          <p>Recruitment events change throughout the semester. In the meantime, take a look at some of our previous events or reach out to us directly.</p>
+          <div class="no-events-actions">
+            <a class="button button-primary" href="interest.html?level=meet#interest-form">I'm Interested</a>
+            <a class="button button-outline-dark" href="https://www.instagram.com/onuthetachi/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="events-section past-section" id="past-events" hidden>
+      <div class="events-container">
+        <div class="events-heading light-heading">
+          <p class="eyebrow gold">Previous Events</p>
+          <h2>See what recruitment is like.</h2>
+          <p>Some of our past events stay here so you can get a better idea of what spending time with the chapter actually looks like.</p>
+        </div>
+        <div id="pastEventsGrid" class="past-events-grid"></div>
+      </div>
+    </section>
+
+    <section class="events-contact-section">
+      <div class="events-contact-card">
+        <div>
+          <p class="eyebrow gold">Can't Make an Event?</p>
+          <h2>That's completely fine.</h2>
+          <p>Events are only one way to meet us. Send us your information or reach out on social media and we can find another time to talk.</p>
+        </div>
+        <a class="button button-primary" href="interest.html?level=info#interest-form">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <img src="assets/img/mainlogo.png" alt="Theta Chi Zeta Kappa" />
     <p>Theta Chi Fraternity · Zeta Kappa Chapter · Ohio Northern University</p>
     <div class="footer-socials">
       <a href="https://www.facebook.com/ThetaChiZK/" aria-label="Facebook"><img src="assets/icons/path-10.svg" alt="" /></a>
-      <a href="https://www.instagram.com/thetachizk/" aria-label="Instagram"><img src="assets/icons/path-20.svg" alt="" /></a>
-    
-      <div class="footer-legal"><a href="privacy.html">Privacy &amp; Cookies</a></div></div>
+      <a href="https://www.instagram.com/onuthetachi/" aria-label="Instagram"><img src="assets/icons/path-20.svg" alt="" /></a>
+      <div class="footer-legal"><a href="privacy.html">Privacy &amp; Cookies</a></div>
+    </div>
   </footer>
   <script src="js/recruitment.js"></script>
+  <script src="js/events-config.js"></script>
+  <script src="js/events.js"></script>
 </body>
 </html>
