@@ -59,7 +59,6 @@
         <article class="feature-card">
           <img src="assets/img/Brotherhood_Fall_2025.jpg" alt="Zeta Kappa brothers together" />
           <div>
-            <span>01</span>
             <h3>Brotherhood</h3>
             <p>Build the kind of friendships that come from showing up, working together, and sharing the college experience.</p>
           </div>
@@ -68,7 +67,6 @@
         <article class="feature-card">
           <img src="assets/img/Service_Fall_2025.png" alt="Theta Chi service activity" />
           <div>
-            <span>02</span>
             <h3>Service</h3>
             <p>Put the Helping Hand into practice through chapter service, philanthropy, and involvement in the surrounding community.</p>
           </div>
@@ -77,7 +75,6 @@
         <article class="feature-card">
           <img src="assets/img/Fall_2025_Class.jpg" alt="Theta Chi members at Ohio Northern University" />
           <div>
-            <span>03</span>
             <h3>Leadership</h3>
             <p>Take responsibility for real events, budgets, teams, programs, and decisions while surrounded by brothers invested in your growth.</p>
           </div>
@@ -86,7 +83,6 @@
         <article class="feature-card">
           <img src="assets/img/Alumni_Fall_2025.jpg" alt="Zeta Kappa alumni and active members" />
           <div>
-            <span>04</span>
             <h3>Beyond College</h3>
             <p>Join a chapter with decades of history and an alumni network that remains connected long after graduation.</p>
           </div>
@@ -115,19 +111,16 @@
     <section class="events section" id="events">
       <div class="section-heading compact">
         <p class="eyebrow red">Come meet us</p>
-        <h2>Recruitment events</h2>
-        <p>Current event details can live here each semester without changing the rest of the site.</p>
+        <h2>Upcoming recruitment events</h2>
+        <p>See what is coming up next, then visit the Events page for the full schedule and a look at past recruitment events.</p>
       </div>
-      <div class="event-shell">
-        <div class="event-date">
-          <strong>FALL</strong>
-          <span>2026</span>
-        </div>
-        <div class="event-copy">
-          <h3>Recruitment schedule coming soon</h3>
-          <p>Follow Zeta Kappa or reach out directly and we'll make sure you know what is happening.</p>
-        </div>
-        <a class="button button-dark" href="events.html">View Recruitment Events</a>
+
+      <div class="home-events-list" id="homeEventsList" aria-live="polite">
+        <div class="home-events-status" id="homeEventsStatus">Loading upcoming events...</div>
+      </div>
+
+      <div class="home-events-footer">
+        <a class="button button-dark" href="events.html">View All Recruitment Events</a>
       </div>
     </section>
 
@@ -151,11 +144,11 @@
         <p>You don't need to know everything about fraternity life before reaching out. Come meet us, ask questions, and see whether Zeta Kappa is right for you.</p>
         <div class="interest-actions">
           <a class="button button-primary" href="interest.html">Start Here</a>
-          <a class="social-link" href="https://www.instagram.com/thetachizk/" aria-label="Theta Chi Zeta Kappa on Instagram">
+          <a class="social-link" href="https://www.instagram.com/onuthetachi/" aria-label="Theta Chi Zeta Kappa on Instagram">
             <img src="assets/icons/path-20.svg" alt="" /> Instagram
           </a>
         </div>
-        <small>Demo contact address — replace before deployment.</small>
+        <small>Mailing Address: 402 W College Ave, Unit 1058, Ada, OH 45810</small>
       </div>
     </section>
   </main>
@@ -165,7 +158,7 @@
     <p>Theta Chi Fraternity · Zeta Kappa Chapter · Ohio Northern University</p>
     <div class="footer-socials">
       <a href="https://www.facebook.com/ThetaChiZK/" aria-label="Facebook"><img src="assets/icons/path-10.svg" alt="" /></a>
-      <a href="https://www.instagram.com/thetachizk/" aria-label="Instagram"><img src="assets/icons/path-20.svg" alt="" /></a>
+      <a href="https://www.instagram.com/onuthetachi/" aria-label="Instagram"><img src="assets/icons/path-20.svg" alt="" /></a>
     
       <div class="footer-legal"><a href="privacy.html">Privacy &amp; Cookies</a></div></div>
   </footer>
@@ -190,6 +183,8 @@
     </div>
   </aside>
 
+  <script src="js/events-config.js"></script>
+  <script src="js/home-events.js"></script>
   <script src="js/recruitment.js"></script>
 </body>
 </html>

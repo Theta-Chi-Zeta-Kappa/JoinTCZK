@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>I'm Interested | Theta Chi Zeta Kappa</title>
   <link rel="stylesheet" href="css/recruitment.css" />
+  <link rel="stylesheet" href="css/interest.css" />
 </head>
 <body>
   <header class="site-header">
@@ -13,45 +14,211 @@
       <img src="assets/img/mainlogo.png" alt="Theta Chi Zeta Kappa at Ohio Northern University" />
     </a>
     <button class="menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-nav" aria-expanded="false">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </button>
-
-<nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
       <a href="about.html">About Us</a>
       <a href="brothers.html">Meet the Brothers</a>
       <a href="events.html">Events</a>
       <a href="parents.html">Parents &amp; Families</a>
-      <a class="nav-cta" href="interest.html">I'm Interested</a>
+      <a class="nav-cta" href="interest.html" aria-current="page">I'm Interested</a>
     </nav>
   </header>
-<main>
-  <section class="subpage-hero" style="background: linear-gradient(90deg,rgba(0,0,0,.72),rgba(0,0,0,.22)), url('assets/img/Theta Chi Fall 2025 Header.jpg') center/cover no-repeat;">
-    <div>
-      <p class="eyebrow gold">Start with a conversation</p>
-      <h1>Interested in Theta Chi?</h1>
-      <p>This page will become the direct path for prospective members to contact recruitment, submit interest information, and find the next step.</p>
-    </div>
-  </section>
-  <section class="placeholder-page">
-    <div class="placeholder-card">
-      <p class="eyebrow red">Page placeholder</p>
-      <h2>Structure ready. Content comes next.</h2>
-      <p>This page is intentionally being held as a placeholder while the recruitment site architecture is developed. The shared navigation, branding, responsive layout, and return path are already in place.</p>
-      <a class="button button-primary" href="index.html">Return Home</a>
-    </div>
-  </section>
-</main>
+
+  <main>
+    <section class="interest-hero">
+      <div class="interest-hero-shade"></div>
+      <div class="interest-hero-content">
+        <p class="eyebrow gold">Start with a conversation</p>
+        <h1>Interested? Curious? Just have a question?</h1>
+        <p>
+          You do not need to know whether fraternity is right for you before reaching out.
+          Tell us a little about yourself and a collegiate member will follow up.
+        </p>
+        <a class="button button-primary" href="#interest-form">Tell Us You're Interested</a>
+      </div>
+    </section>
+
+    <section class="interest-paths" aria-label="Ways to connect">
+      <article class="path-card">
+        <h2>Meet Us</h2>
+        <p>See what is coming up and stop by an event to meet the chapter in person.</p>
+        <a class="text-link" href="events.html">View Events</a>
+      </article>
+      <article class="path-card">
+        <h2>Message Us</h2>
+        <p>Not ready for a form? Send us a message through one of our social pages.</p>
+        <div class="path-socials">
+          <a href="https://www.instagram.com/onuthetachi/" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.facebook.com/ThetaChiZK/" target="_blank" rel="noopener noreferrer">Facebook</a>
+        </div>
+      </article>
+      <article class="path-card path-card-red">
+        <h2>Reach Out</h2>
+        <p>Submit the short form below and give us the best way to contact you.</p>
+        <a class="text-link" href="#interest-form">Open the Form</a>
+      </article>
+    </section>
+
+    <section class="form-section" id="interest-form">
+      <div class="form-intro">
+        <p class="eyebrow red">I'm Interested</p>
+        <h2>Start the conversation.</h2>
+        <p>
+          This is not a commitment to join. It simply gives us enough information to reach out,
+          answer your questions, and help you decide what your next step should be.
+        </p>
+      </div>
+
+      <div class="form-shell">
+        <form id="interestForm" class="interest-form" method="post" target="interest-submit-frame" novalidate>
+          <div class="form-grid two-col">
+            <label class="field">
+              <span>First Name <b>*</b></span>
+              <input type="text" name="firstName" autocomplete="given-name" maxlength="60" required />
+            </label>
+            <label class="field">
+              <span>Last Name <b>*</b></span>
+              <input type="text" name="lastName" autocomplete="family-name" maxlength="60" required />
+            </label>
+          </div>
+
+          <div class="form-grid two-col">
+            <label class="field">
+              <span>Graduation Year <b>*</b></span>
+              <input type="number" name="graduationYear" inputmode="numeric" min="2026" max="2040" placeholder="2030" required />
+            </label>
+            <label class="field">
+              <span>Major or Intended Major</span>
+              <input type="text" name="major" autocomplete="organization-title" maxlength="100" placeholder="Optional" />
+            </label>
+          </div>
+
+          <fieldset class="contact-fieldset">
+            <legend>How should we reach you?</legend>
+            <p class="field-help">Enter an email address, phone number, or both. At least one is required.</p>
+            <div class="form-grid two-col">
+              <label class="field">
+                <span>Email</span>
+                <input id="interestEmail" type="email" name="email" autocomplete="email" maxlength="120" />
+              </label>
+              <label class="field">
+                <span>Phone</span>
+                <input id="interestPhone" type="tel" name="phone" autocomplete="tel" maxlength="30" />
+              </label>
+            </div>
+            <p class="field-error" id="contactError" hidden>Please enter an email address or phone number.</p>
+
+            <div class="field preferred-contact-wrap">
+              <span>Preferred Contact <b>*</b></span>
+              <div class="choice-row" id="preferredContactChoices">
+                <label class="choice-pill"><input type="radio" name="preferredContact" value="Email" /><span>Email</span></label>
+                <label class="choice-pill"><input type="radio" name="preferredContact" value="Text" /><span>Text</span></label>
+                <label class="choice-pill"><input type="radio" name="preferredContact" value="Call" /><span>Call</span></label>
+              </div>
+              <p class="field-error" id="preferredError" hidden>Please select a preferred contact method.</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="interest-level-fieldset">
+            <legend>Where are you right now? <b>*</b></legend>
+            <p class="field-help">Pick the option that best describes where you are. There is no wrong answer.</p>
+            <div class="interest-level-grid">
+              <label class="level-option">
+                <input type="radio" name="interestLevel" value="Just looking around" required />
+                <span><strong>Just looking around</strong><small>I'm exploring what is out there.</small></span>
+              </label>
+              <label class="level-option">
+                <input type="radio" name="interestLevel" value="I'd like more information" />
+                <span><strong>I'd like more information</strong><small>I have questions and want to learn more.</small></span>
+              </label>
+              <label class="level-option">
+                <input type="radio" name="interestLevel" value="I'd like to meet the chapter" />
+                <span><strong>I'd like to meet the chapter</strong><small>I'd like to attend something and meet people.</small></span>
+              </label>
+              <label class="level-option">
+                <input type="radio" name="interestLevel" value="I'm interested in joining" />
+                <span><strong>I'm interested in joining</strong><small>I'm ready to talk about the next steps.</small></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-grid two-col lower-fields">
+            <label class="field">
+              <span>How did you hear about us?</span>
+              <select name="heardAboutUs">
+                <option value="">Select an option</option>
+                <option>Friend / Current Brother</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>Recruitment Event</option>
+                <option>Campus Event</option>
+                <option>ONU / Greek Life</option>
+                <option>Alumnus</option>
+                <option>QR Code / Flyer</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="field message-field">
+              <span>Anything you'd like to ask or tell us?</span>
+              <textarea name="message" maxlength="1000" rows="5" placeholder="Optional"></textarea>
+            </label>
+          </div>
+
+          <label class="website-trap" aria-hidden="true">
+            Website
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </label>
+
+          <input type="hidden" name="source" id="interestSource" value="Website" />
+
+          <div class="submit-row">
+            <div>
+              <p class="privacy-note">Your information is used only to respond to your interest in Theta Chi. See our <a href="privacy.html">Privacy &amp; Cookies</a> page.</p>
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+            </div>
+            <button class="button button-primary submit-button" type="submit">Send My Information</button>
+          </div>
+        </form>
+
+        <div class="success-panel" id="successPanel" hidden>
+          <p class="eyebrow red">Information Sent</p>
+          <h2>We'll be in touch.</h2>
+          <p>Thanks for reaching out. A collegiate member will follow up using the contact method you selected.</p>
+          <div class="success-actions">
+            <a class="button button-primary" href="events.html">View Upcoming Events</a>
+            <a class="button button-dark" href="index.html">Return Home</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="what-next">
+      <div class="what-next-copy">
+        <p class="eyebrow gold">What Happens Next?</p>
+        <h2>No pressure. Just a conversation.</h2>
+      </div>
+      <div class="next-steps">
+        <article><strong>1</strong><h3>We Reach Out</h3><p>A collegiate member contacts you using your preferred method.</p></article>
+        <article><strong>2</strong><h3>Meet the Chapter</h3><p>Ask questions, attend an event, and get to know the people behind the letters.</p></article>
+        <article><strong>3</strong><h3>Decide for Yourself</h3><p>Take the time you need to decide whether Theta Chi is a good fit for you.</p></article>
+      </div>
+    </section>
+  </main>
+
   <footer>
     <img src="assets/img/mainlogo.png" alt="Theta Chi Zeta Kappa" />
     <p>Theta Chi Fraternity · Zeta Kappa Chapter · Ohio Northern University</p>
     <div class="footer-socials">
       <a href="https://www.facebook.com/ThetaChiZK/" aria-label="Facebook"><img src="assets/icons/path-10.svg" alt="" /></a>
-      <a href="https://www.instagram.com/thetachizk/" aria-label="Instagram"><img src="assets/icons/path-20.svg" alt="" /></a>
-    
-      <div class="footer-legal"><a href="privacy.html">Privacy &amp; Cookies</a></div></div>
+      <a href="https://www.instagram.com/onuthetachi/" aria-label="Instagram"><img src="assets/icons/path-20.svg" alt="" /></a>
+      <div class="footer-legal"><a href="privacy.html">Privacy &amp; Cookies</a></div>
+    </div>
   </footer>
+
+  <iframe name="interest-submit-frame" id="interest-submit-frame" title="Interest form submission" hidden></iframe>
   <script src="js/recruitment.js"></script>
+  <script src="js/interest-config.js"></script>
+  <script src="js/interest.js"></script>
 </body>
 </html>

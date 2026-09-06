@@ -1497,3 +1497,48 @@ footer p { margin: 0; text-align: center; }
     transform: translateY(24px);
   }
 }
+
+/* ===== Homepage live upcoming events ===== */
+.home-events-list {
+  width: min(1000px, 100%);
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+}
+.home-events-status {
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  background: #fff;
+  border: 1px solid #e8e3dc;
+  border-radius: var(--radius);
+}
+.home-event-shell {
+  width: 100%;
+  margin: 0;
+}
+.home-event-shell .event-date strong {
+  letter-spacing: .06em;
+}
+.home-event-shell .event-date span {
+  font-size: 1.4rem;
+  font-weight: 800;
+  opacity: 1;
+}
+.home-events-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+.home-event-empty {
+  grid-template-columns: 1fr auto;
+}
+
+@media (max-width: 800px) {
+  .home-event-empty {
+    grid-template-columns: 1fr;
+  }
+  .home-event-empty .button {
+    grid-column: auto;
+  }
+}
