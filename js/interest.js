@@ -18,9 +18,9 @@
 
   // Smart interest links can preselect visible form answers without adding
   // any extra columns to the Google Sheet. Examples:
-  //   interest.html?level=meet#interest-form
-  //   interest.html?heard=instagram#interest-form
-  //   interest.html?level=info&heard=qr#interest-form
+  //   /interest/?level=meet#interest-form
+  //   /interest/?heard=instagram#interest-form
+  //   /interest/?level=info&heard=qr#interest-form
   const levelMap = {
     look: 'Just looking around',
     info: "I'd like more information",

@@ -87,7 +87,7 @@
         <h3>${escapeHtml(event.name)}</h3>
         <p>${details}</p>
       </div>
-      <a class="button button-dark" href="events.html">Event Details</a>
+      <a class="button button-dark" href="/events/">Event Details</a>
     `;
     return article;
   }
@@ -111,7 +111,7 @@
           <h3>More events are on the way.</h3>
           <p>Recruitment events change throughout the semester. Visit the Events page or reach out to us and we will help you find the next opportunity to meet the chapter.</p>
         </div>
-        <a class="button button-dark" href="interest.html?level=meet#interest-form">I Want to Meet the Chapter</a>
+        <a class="button button-dark" href="/interest/?level=meet#interest-form">I Want to Meet the Chapter</a>
       </div>
     `;
   }
@@ -178,7 +178,7 @@
       render(await loadGViz(sheetId(shareUrl)));
     } catch (error) {
       console.error("Homepage event load failed:", error);
-      status.innerHTML = `We could not load the upcoming schedule right now. <a href="events.html">View the Events page</a>.`;
+      status.innerHTML = `We could not load the upcoming schedule right now. <a href="/events/">View the Events page</a>.`;
     }
   }
 
