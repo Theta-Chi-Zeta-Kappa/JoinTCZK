@@ -83,3 +83,10 @@ The About page alternates image-left/text-right and text-left/image-right throug
 - Added a Privacy & Cookies link to the recruitment-site footer.
 - Added privacy.html with a short plain-language explanation of preference storage used by pop-ups and possible future basic site analytics.
 - The wording intentionally distinguishes preference storage from future analytics and notes that consent controls may be updated if non-essential technologies are introduced.
+
+
+## v20 changes
+- Renamed primary navigation labels to **About Us**, **Meet the Brothers**, and **Parents & Families**.
+- Standardized browser-tab titles for the updated navigation language.
+- Updated the About page hero title to **About Us** while preserving the “More than four years” message in the supporting copy.
+- Fixed mobile navigation stacking so the menu sits above the blur layer and parent prompt. The parent prompt temporarily moves out of the way while the mobile menu is open and returns after it closes.

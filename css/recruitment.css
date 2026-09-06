@@ -1480,3 +1480,20 @@ footer p { margin: 0; text-align: center; }
   accent-color: var(--red);
   cursor: pointer;
 }
+
+/* v20: mobile navigation stacking / parent-prompt interaction fix */
+@media (max-width: 800px) {
+  /* The nav lives inside .site-header, so the header itself must sit above
+     the dim/blur layer while the mobile menu is open. */
+  body.mobile-nav-open .site-header {
+    z-index: 120;
+  }
+
+  /* Temporarily move the parent prompt out of the interaction layer while
+     navigation is open. It is not dismissed and returns when the menu closes. */
+  body.mobile-nav-open .parent-popout {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(24px);
+  }
+}
