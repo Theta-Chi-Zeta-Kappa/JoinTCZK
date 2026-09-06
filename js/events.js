@@ -6,7 +6,7 @@
   const pastGrid = document.getElementById("pastEventsGrid");
   const shareUrl = String(window.EVENTS_SHEET_SHARE_URL || "").trim();
   const sheetName = String(window.EVENTS_SHEET_NAME || "Events").trim();
-  const fallbackLogo = "assets/img/mainlogo.png";
+  const fallbackLogo = "/assets/img/mainlogo.png";
 
   const esc = v => String(v ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
   const norm = v => String(v || "").trim().toLowerCase().replace(/\s+/g," ");
@@ -27,6 +27,15 @@
     return null;
   }
 
+
+  function normalizeAssetPath(value){
+    const text=String(value??"").trim();
+    if(!text) return "";
+    if(/^(?:https?:)?\/\//i.test(text) || text.startsWith("data:") || text.startsWith("/")) return text;
+    if(text.startsWith("assets/")) return `/${text}`;
+    return text;
+  }
+
   function rowsToEvents(table){
     if(!table?.cols || !table?.rows) throw new Error("Google returned an unexpected sheet format.");
     const headers=table.cols.map(c=>norm(c.label||c.id||""));
@@ -39,7 +48,7 @@
       return {
         name:cell(row,idx("event")), date:parseGoogleDate(raw(row,idx("date")),formattedDate), dateLabel:formattedDate,
         start:cell(row,idx("start time")), end:cell(row,idx("end time")), location:cell(row,idx("location")),
-        description:cell(row,idx("description")), image:cell(row,idx("image")), showPast:yes(cell(row,idx("show in past events")))
+        description:cell(row,idx("description")), image:normalizeAssetPath(cell(row,idx("image"))), showPast:yes(cell(row,idx("show in past events")))
       };
     }).filter(e=>e.name && e.date);
   }

@@ -2,10 +2,10 @@
 
 Pages:
 - index.html
-- about.html — developed scrapbook-style About Us page
-- brothers.html — placeholder
-- events.html — placeholder
-- parents.html — placeholder
+- /about/ — developed scrapbook-style About Us page
+- /brothers/ — placeholder
+- /events/ — placeholder
+- /parents/ — placeholder
 - interest.html — placeholder
 
 The About page alternates image-left/text-right and text-left/image-right through Brotherhood, Service, Leadership, and Beyond College. Images use a polaroid-style white frame, thicker lower border, drop shadow, slight rotation, and subtle gloss.
@@ -81,7 +81,7 @@ The About page alternates image-left/text-right and text-left/image-right throug
 
 ## v18 Privacy & Cookies
 - Added a Privacy & Cookies link to the recruitment-site footer.
-- Added privacy.html with a short plain-language explanation of preference storage used by pop-ups and possible future basic site analytics.
+- Added /privacy/ with a short plain-language explanation of preference storage used by pop-ups and possible future basic site analytics.
 - The wording intentionally distinguishes preference storage from future analytics and notes that consent controls may be updated if non-essential technologies are introduced.
 
 

@@ -4,7 +4,7 @@
 
   const shareUrl = String(window.BROTHERS_SHEET_SHARE_URL || "").trim();
   const configuredGid = String(window.BROTHERS_SHEET_GID || "0").trim() || "0";
-  const fallbackLogo = "assets/img/mainlogo.png";
+  const fallbackLogo = "/assets/img/mainlogo.png";
 
   function escapeHTML(value) {
     return String(value ?? "")
@@ -55,6 +55,15 @@
     return text;
   }
 
+
+  function normalizeAssetPath(value) {
+    const text = String(value ?? "").trim();
+    if (!text) return "";
+    if (/^(?:https?:)?\/\//i.test(text) || text.startsWith("data:") || text.startsWith("/")) return text;
+    if (text.startsWith("assets/")) return `/${text}`;
+    return text;
+  }
+
   function tableToBrothers(table) {
     if (!table || !Array.isArray(table.cols) || !Array.isArray(table.rows)) {
       throw new Error("Google returned an unexpected sheet format.");
@@ -85,7 +94,7 @@
         major: cellValue(row, col("major")),
         gradYear: cellValue(row, col("graduation year")),
         position: normalizeOptionalField(cellValue(row, col("position"))),
-        photo: cellValue(row, col("photo"))
+        photo: normalizeAssetPath(cellValue(row, col("photo")))
       }))
       .filter(person => person.name);
   }
