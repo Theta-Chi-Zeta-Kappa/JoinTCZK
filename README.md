@@ -77,3 +77,9 @@ The About page alternates image-left/text-right and text-left/image-right throug
 - Set the sheet to "Anyone with the link" -> Viewer.
 - If the Active Brothers roster is not the first sheet tab, set BROTHERS_SHEET_GID to that tab's gid.
 - Recommended for local testing: use a local HTTP server such as VS Code Live Server or `python -m http.server`; do not open the HTML via file://.
+
+
+## v18 Privacy & Cookies
+- Added a Privacy & Cookies link to the recruitment-site footer.
+- Added privacy.html with a short plain-language explanation of preference storage used by pop-ups and possible future basic site analytics.
+- The wording intentionally distinguishes preference storage from future analytics and notes that consent controls may be updated if non-essential technologies are introduced.
