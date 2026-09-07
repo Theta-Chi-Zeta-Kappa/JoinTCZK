@@ -18,44 +18,6 @@ The About page alternates image-left/text-right and text-left/image-right throug
 - The closing black panel is now semi-transparent and blurred, visibly floating over the photos behind it.
 
 
-## v5 collage revision
-- Enlarged all five closing Polaroids.
-- Reworked them into a loose single-row composition rather than a 2x2-style cluster.
-- Mixed portrait and landscape card proportions.
-- Increased rotation variety so they feel tossed onto a scrapbook table and partially organized.
-- Reduced the dark panel opacity slightly so the photos visibly continue underneath it.
-- Positioned the panel so it covers only the middle portions of the photos, leaving large sections exposed.
-
-
-## v6 wide scrapbook revision
-- Expanded the About closing collage from 5 to 9 prints.
-- Duplicated several existing photos intentionally as temporary placeholders.
-- Spread the photographs across a field wider than the CTA panel and, on desktop, slightly wider than the viewport.
-- Preserved mixed portrait/landscape proportions and irregular rotations.
-- Kept the translucent CTA centered over only the middle of the scrapbook spread.
-
-
-## v7 edge-intersection correction
-- Repositioned the photographs around the perimeter of the translucent panel instead of behind its center.
-- Six prints intersect only an edge of the black panel, leaving about half of each visible outside it.
-- Three additional prints sit farther left/right and are partially obscured by neighboring Polaroids rather than by the panel.
-- Kept irregular rotations and mixed portrait/landscape proportions.
-
-
-## v8 horizontal spread
-- Preserved the v7 perimeter-intersection composition.
-- Pushed the photograph field roughly 50% farther left and right.
-- Far outer Polaroids now extend beyond the central content width.
-- Middle photographs bridge the gap between the outer prints and the translucent panel.
-- Kept one lower-center photograph as a visual anchor so the collage still feels connected.
-
-
-## v9 extra-wide scrapbook revision
-- Pushed the v8 photograph composition approximately another 75% outward horizontally.
-- Outer prints now sit substantially farther beside the translucent panel.
-- Inner prints still bridge toward/intersect the panel so the collage remains visually connected.
-
-
 ## v10 open-center revision
 - Pushed four of the inner/center photographs farther toward the left and right edges.
 - Moved the lower-center portrait toward the lower-left edge rather than directly behind the CTA.
@@ -94,3 +56,7 @@ The About page alternates image-left/text-right and text-left/image-right throug
 
 ## v27 smart Interest links
 See `INTEREST-LINKS.md` for query-string links that preselect Interest Level and/or How Did You Hear About Us.
+
+
+## Recruitment photography refresh (v33)
+17 archival/current chapter photos were added to `assets/img/`. Landing, About, Events, Interest, and Parents imagery now uses a mix of current and historical Zeta Kappa photography.

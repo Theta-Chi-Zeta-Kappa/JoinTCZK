@@ -108,7 +108,7 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   color: white;
   background:
-    url("../assets/img/Theta Chi Fall 2025 Header.jpg") center 44% / cover no-repeat;
+    url("../assets/img/2026_Greek_Sing.webp") center 44% / cover no-repeat;
   overflow: hidden;
 }
 .hero-shade {
@@ -171,6 +171,12 @@ a { color: inherit; text-decoration: none; }
 .button-secondary:hover { background: rgba(255,255,255,.16); }
 .button-dark { background: var(--ink); color: white; }
 .button-light { background: white; color: var(--red); }
+
+.about-home-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 36px;
+}
 .hero-location {
   position: absolute;
   z-index: 2;

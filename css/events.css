@@ -1,4 +1,4 @@
-.events-hero { position: relative; min-height: 610px; display:flex; align-items:flex-end; color:#fff; background:url('../assets/img/Brotherhood_Fall_2025.jpg') center/cover no-repeat; }
+.events-hero { position: relative; min-height: 610px; display:flex; align-items:flex-end; color:#fff; background:url('../assets/img/2026_Welcome_Fest.webp') center/cover no-repeat; }
 .events-hero-shade { position:absolute; inset:0; background:linear-gradient(90deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.52) 48%,rgba(0,0,0,.16) 100%); }
 .events-hero-content { position:relative; z-index:1; width:min(1180px,calc(100% - 44px)); margin:0 auto; padding:110px 0 72px; }
 .events-hero h1 { margin:4px 0 16px; font-size:clamp(4rem,9vw,7.5rem); line-height:.88; letter-spacing:-.055em; }
