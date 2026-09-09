@@ -69,3 +69,56 @@ if (!dismissed) {
 
 parentClose?.addEventListener('click', hideParentPrompt);
 notNow?.addEventListener('click', hideParentPrompt);
+
+
+// Contact email buttons: keep normal mailto behavior on touch/mobile devices,
+// but provide a reliable copy-to-clipboard fallback on desktop browsers where
+// mailto protocol handling is often not configured.
+const contactEmailButtons = document.querySelectorAll('.contact-email-button[data-email]');
+const desktopPointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+async function copyTextToClipboard(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  textarea.style.pointerEvents = 'none';
+  document.body.appendChild(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+  if (!copied) throw new Error('Copy command failed');
+}
+
+contactEmailButtons.forEach(button => {
+  button.addEventListener('click', async event => {
+    // Phones/tablets retain the native mail app behavior.
+    if (!desktopPointer.matches) return;
+
+    event.preventDefault();
+
+    const email = button.dataset.email;
+    const originalLabel = button.dataset.label || button.textContent.trim();
+
+    try {
+      await copyTextToClipboard(email);
+      button.textContent = 'Email copied!';
+      button.setAttribute('title', `${email} copied to clipboard`);
+    } catch (_) {
+      // If clipboard access is unavailable, expose the address directly.
+      button.textContent = email;
+      button.setAttribute('title', 'Copy this email address');
+    }
+
+    window.setTimeout(() => {
+      button.textContent = originalLabel;
+      button.removeAttribute('title');
+    }, 2200);
+  });
+});
